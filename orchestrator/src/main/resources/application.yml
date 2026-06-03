@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: orchestrator
+  config:
+    import:
+      - classpath:application-common.yml
+      - classpath:application-services.yml
+  datasource:
+    username: ${DATABASE_USER:orchestrator_user}
+    password: ${DATABASE_PASSWORD:orchestrator@123}
+  jpa:
+    properties:
+      hibernate:
+        default_schema: orchestrator_schema
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${security.oauth2.issuer-uri}

@@ -1,0 +1,10 @@
+apiVersion: v2
+name: asset-service
+description: Helm chart for SmartAsset Asset Service
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: smartasset-common
+    version: 0.1.0
+    repository: "file://../smartasset-common"

@@ -1,0 +1,14 @@
+smartasset-common:
+  image:
+    repository: smartasset/gateway
+    tag: latest
+  service:
+    type: LoadBalancer
+    port: 8080
+    externalPort: 80
+  replicaCount: 1
+  envFrom:
+    - configMapRef:
+        name: smartasset-common-config
+    - secretRef:
+        name: smartasset-secrets

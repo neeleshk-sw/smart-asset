@@ -1,0 +1,17 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: payment-service
+  config:
+    import:
+      - classpath:application-common.yml
+      - classpath:application-services.yml
+  datasource:
+    username: ${DATABASE_USER:payment_user}
+    password: ${DATABASE_PASSWORD:payment@123}
+  jpa:
+    properties:
+      hibernate:
+        default_schema: payment_schema

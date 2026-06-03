@@ -1,0 +1,13 @@
+smartasset-common:
+  image:
+    repository: smartasset/asset-service
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 8082
+  replicaCount: 1
+  envFrom:
+    - configMapRef:
+        name: smartasset-common-config
+    - secretRef:
+        name: smartasset-secrets

@@ -1,0 +1,85 @@
+name: SmartAsset Platform CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "services/**"
+      - "gateway/**"
+      - "orchestrator/**"
+      - "libs/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "services/**"
+      - "gateway/**"
+      - "orchestrator/**"
+      - "libs/**"
+
+jobs:
+  # Core Logic Services
+  asset-service:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: asset-service
+      service_path: services/asset-service
+      docker_image: smartasset/asset-service
+    secrets: inherit
+
+  customer-service:
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: customer-service
+      service_path: services/customer-service
+      docker_image: smartasset/customer-service
+    secrets: inherit
+
+  contract-service:
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: contract-service
+      service_path: services/contract-service
+      docker_image: smartasset/contract-service
+    secrets: inherit
+
+  payment-service:
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: payment-service
+      service_path: services/payment-service
+      docker_image: smartasset/payment-service
+    secrets: inherit
+
+  # Support Services
+  gateway:
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: gateway
+      service_path: gateway
+      docker_image: smartasset/gateway
+    secrets: inherit
+
+  audit-service:
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: audit-service
+      service_path: services/audit-service
+      docker_image: smartasset/audit-service
+    secrets: inherit
+
+  notification-service:
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: notification-service
+      service_path: services/notification-service
+      docker_image: smartasset/notification-service
+    secrets: inherit
+
+  orchestrator:
+    uses: ./.github/workflows/service-pipeline.yml
+    with:
+      service_name: orchestrator
+      service_path: orchestrator
+      docker_image: smartasset/orchestrator
+    secrets: inherit

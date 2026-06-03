@@ -1,0 +1,13 @@
+smartasset-common:
+  image:
+    repository: smartasset/payment-service
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 8085
+  replicaCount: 1
+  envFrom:
+    - configMapRef:
+        name: smartasset-common-config
+    - secretRef:
+        name: smartasset-secrets

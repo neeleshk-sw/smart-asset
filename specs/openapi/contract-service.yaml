@@ -1,0 +1,9 @@
+openapi: 3.0.3
+info:
+  title: Contract Service API
+  description: API for managing contracts
+  version: 1.0.0
+servers:
+  - url: http://localhost:8083
+    description: Local Server
+paths: {}

@@ -1,0 +1,26 @@
+# Global overrides
+global:
+  imageTag: latest
+  namespace: smartasset
+
+# Feature flags
+gateway:
+  enabled: true
+asset-service:
+  enabled: true
+customer-service:
+  enabled: true
+contract-service:
+  enabled: true
+payment-service:
+  enabled: true
+audit-service:
+  enabled: true
+notification-service:
+  enabled: true
+orchestrator:
+  enabled: true
+# Dependency-specific values (if needed)
+# asset-service:
+#   smartasset-common:
+#     replicaCount: 3

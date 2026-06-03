@@ -1,0 +1,40 @@
+apiVersion: v2
+name: smartasset-platform
+description: Umbrella chart for the entire SmartAsset platform
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+dependencies:
+  - name: gateway
+    version: 0.1.0
+    repository: "file://../charts/gateway"
+    condition: gateway.enabled
+  - name: asset-service
+    version: 0.1.0
+    repository: "file://../charts/asset-service"
+    condition: asset-service.enabled
+  - name: customer-service
+    version: 0.1.0
+    repository: "file://../charts/customer-service"
+    condition: customer-service.enabled
+  - name: contract-service
+    version: 0.1.0
+    repository: "file://../charts/contract-service"
+    condition: contract-service.enabled
+  - name: payment-service
+    version: 0.1.0
+    repository: "file://../charts/payment-service"
+    condition: payment-service.enabled
+  - name: audit-service
+    version: 0.1.0
+    repository: "file://../charts/audit-service"
+    condition: audit-service.enabled
+  - name: notification-service
+    version: 0.1.0
+    repository: "file://../charts/notification-service"
+    condition: notification-service.enabled
+  - name: orchestrator
+    version: 0.1.0
+    repository: "file://../charts/orchestrator"
+    condition: orchestrator.enabled

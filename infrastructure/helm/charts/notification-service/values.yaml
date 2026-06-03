@@ -1,0 +1,13 @@
+smartasset-common:
+  image:
+    repository: smartasset/notification-service
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 8087
+  replicaCount: 1
+  envFrom:
+    - configMapRef:
+        name: smartasset-common-config
+    - secretRef:
+        name: smartasset-secrets

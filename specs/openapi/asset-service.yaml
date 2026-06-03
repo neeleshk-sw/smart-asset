@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: Asset Service API
+  description: API for managing assets in SmartAsset Platform
+  version: 1.0.0
+servers:
+  - url: http://localhost:8081
+    description: Local Server
+paths:
+  /api/v1/assets:
+    get:
+      summary: List assets
+      operationId: getAssets
+      responses:
+        '200':
+          description: Successful operation
+components:
+  schemas:
+    Asset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string

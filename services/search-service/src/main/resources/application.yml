@@ -1,0 +1,13 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: search-service
+  config:
+    import:
+      - classpath:application-common.yml
+      - classpath:application-services.yml
+  datasource:
+    username: ${DATABASE_USER:search_user}
+    password: ${DATABASE_PASSWORD:search@123}
